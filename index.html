@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<head>
+  <title>My Simple Portfolio</title>
+  <style>
+
+    @font-face {
+      font-family: ClashDisplay-Regular;
+      src: C\Users\HP\Desktop\Portfolio\fonts(ClashDisplay-Regular);
+    }
+    body {
+      font-family: ClashDisplad-Regular;
+      margin: 0;
+      background-image: url('pics/bakron.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #f4f4f4;
+      color: white;
+    }
+
+    header {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    header h1 {
+      color: white;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #444;
+    }
+
+    nav button {
+      padding: 14px 20px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background-color: #666;
+    }
+
+    .tab-content {
+      display: none;
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      color: #ffffff;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .social-icons img {
+      width: 32px;
+      margin: 5px;
+      vertical-align: middle;
+    }
+
+    #fullscreenModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      text-align: center;
+    }
+
+    #fullscreenModal img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    #fullscreenModal span {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    /* Dropdown styling */
+    .dropdown {
+      margin-bottom: 15px;
+    }
+
+    .dropdown button {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      background-color: #555;
+      color: white;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .dropdown button:hover {
+      background-color: #777;
+    }
+
+    .dropdown-content {
+      display: none;
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .dropdown-content img {
+      width: 300px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .dropdown.active .dropdown-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><strong>ABRAM JACOB CADIZ</strong></h1>
+  </header>
+
+  <nav>
+    <button class="tab-button active" onclick="showTab('about', this)">About Me</button>
+    <button class="tab-button" onclick="showTab('projects', this)">Projects</button>
+    <button class="tab-button" onclick="showTab('skills', this)">Skills</button>
+  </nav>
+
+  <div id="about" class="tab-content active">
+    <center>
+      <img src="pics/profpc.jpg" alt="Profile Photo">
+    </center>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+      <div style="flex: 1;">
+        <h2>About Me</h2>
+        <p>My name is Abram Jacob Cadiz.<br>
+        I was born in September 20, 2007<br>
+        I live in Brgy. Talacuan Leon, Iloilo</p>
+        <p>Contact No. 09687283110</p>
+        <p>Socials:</p>
+
+        <div class="social-icons">
+          <a href="https://web.facebook.com/abramjacob.cadiz/" target="_blank">
+            <img src="pics/fakbok.png" alt="Facebook">
+          </a>
+          <a href="https://github.com/miiewoo" target="_blank">
+            <img src="pics/gitub3.png" alt="GitHub">
+          </a>
+          <a href="mailto:snisboii@gmail.com">
+            <img src="pics/gemail2.png" alt="Gmail">
+          </a>
+        </div>
+      </div>
+
+      <div style="flex: 1;">
+        <h2>Hobbies</h2>
+        <ul>
+          <li>Reading books</li>
+          <li>Playing video games</li>
+          <li>Coding</li>
+          <li>Watching Historical Videos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="projects" class="tab-content">
+    <h2>Projects</h2>
+
+    <!-- Q1 Dropdown -->
+    <div class="dropdown">
+      <button onclick="toggleDropdown(this)">Q1 Projects ▼</button>
+      <div class="dropdown-content">
+        <p>Timeline Project (Q1)</p>
+        <a href="timlin.pdf" target="_blank">
+          <img src="pics/timlin.png" alt="Q1 Timeline Project">
+        </a>
+
+        <p>Media Project (Q1)</p>
+        <img src="pics/Pos.jpg" alt="Q1 Media Project" onclick="openFullscreen(this)">
+      </div>
+    </div>
+
+    <!-- Q2 Dropdown -->
+    <div class="dropdown">
+      <button onclick="toggleDropdown(this)">Q2 Projects ▼</button>
+      <div class="dropdown-content">
+        <p>Performance Task (Q2)</p>
+        <img src="pics/PFT 2nd q.jpeg" alt="Q2 PT" onclick="openFullscreen(this)">
+
+        <p>Typography Poster</p>
+        <img src="pics/posterba.png" alt="Q2 Second Project" onclick="openFullscreen(this)">
+      </div>
+    </div>
+  </div>
+
+  <div id="skills" class="tab-content">
+    <h2>Skills</h2>
+    <ul>
+      <li>Basic Java, HTML, CSS, JavaScript programming skills</li>
+      <li>Videography</li>
+      <li>Photography</li>
+    </ul>
+  </div>
+
+  <div id="fullscreenModal">
+    <span onclick="closeFullscreen()">&times;</span>
+    <img id="fullscreenImg" src="">
+  </div>
+
+  <script>
+    function showTab(tabId, element) {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      document.getElementById(tabId).classList.add('active');
+      element.classList.add('active');
+    }
+
+    function toggleDropdown(button) {
+      const dropdown = button.parentElement;
+      dropdown.classList.toggle("active");
+    }
+
+    function openFullscreen(imgElement) {
+      document.getElementById("fullscreenModal").style.display = "block";
+      document.getElementById("fullscreenImg").src = imgElement.src;
+    }
+
+    function closeFullscreen() {
+      document.getElementById("fullscreenModal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
